@@ -1,0 +1,57 @@
+.root {
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.login-container {
+    -fx-background-color: #f4f6f9;
+    -fx-padding: 40;
+}
+
+.title-text-login {
+    -fx-font-size: 10px;
+    -fx-fill: #2f2f2f;
+}
+
+.title-login {
+    -fx-padding: 0 0 16px 0;
+}
+
+.input {
+    -fx-pref-width: 250px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 14px;
+}
+
+.botao-login {
+    -fx-background-color: #0D9488;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 250px;
+    -fx-padding: 12px;
+    -fx-background-radius: 16px;
+}
+
+.botao-login:hover {
+    -fx-background-color: #0F766E;
+    -fx-cursor: hand;
+}
+
+.input-wrapper {
+    -fx-padding: 0 8px;
+}
+
+.input-wrapper Label {
+    -fx-padding: 0 0 4px 4px;
+}
+
+.input-wrapper TextField,
+.input-wrapper PasswordField {
+    -fx-padding: 12px;
+    -fx-border-radius: 12px;
+    -fx-background-radius: 12px;
+}
+
+.input-wrapper TextField:focused,
+.input-wrapper PasswordField:focused {
+    -fx-border-color: #0D9488;
+}
