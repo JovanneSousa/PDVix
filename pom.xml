@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>PDVix</groupId>
     <artifactId>PDVix</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -46,6 +46,29 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.0</version>
+
+                <configuration>
+                    <name>PDVix</name>
+                    <input>target</input>
+                    <mainJar>${project.build.finalName}.jar</mainJar>
+                    <mainClass>PDVix.App</mainClass>
+                    <destination>dist</destination>
+                    <type>APP_IMAGE</type>
+
+                    <modulePaths>
+                        <modulePath>target/dependency</modulePath>
+                    </modulePaths>
+
+                    <addModules>
+                        <addModule>javafx.controls</addModule>
+                        <addModule>javafx.fxml</addModule>
+                    </addModules>
+                </configuration>
             </plugin>
         </plugins>
     </build>
