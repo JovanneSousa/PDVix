@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 
@@ -14,17 +17,26 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
+@SpringBootApplication
 public class App extends Application {
+
+    private static ConfigurableApplicationContext context;
+
+    @Override
+    public void init() {
+        context = SpringApplication.run(App.class);
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
         Font.loadFont(
                 getClass().getResourceAsStream("/fonts/JetBrainsMono-Bold.ttf"), 14
         );
-
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/main.fxml")
         );
+
+        loader.setControllerFactory(context::getBean);
 
         Scene scene = new Scene(loader.load());
 
@@ -33,8 +45,12 @@ public class App extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop() {
+        context.close();
+    }
+
     public static void main(String[] args) {
         launch();
     }
-
 }

@@ -15,7 +15,7 @@
       stylesheets="@../styles/login.css"
       styleClass="login-container"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="PDVix.controllers.MainController">
+      fx:controller="PDVix.controllers.LoginController">
 
 <VBox spacing="0" styleClass="title-login" alignment="CENTER">
     <ImageView fitHeight="80" fitWidth="200">
@@ -27,17 +27,17 @@
 </VBox>
 
 <VBox styleClass="input-wrapper">
-    <Label labelFor="$txtUsuario" text="LOGIN (cpf)" />
+    <Label labelFor="$loginField" text="LOGIN (cpf)" />
     <TextField
-            fx:id="txtUsuario"
+            fx:id="loginField"
             promptText="Cpf ou Usuário"
             styleClass="input"/>
 </VBox>
 <VBox styleClass="input-wrapper">
-    <Label labelFor="$txtSenha" text="SENHA" />
+    <Label labelFor="$passwordField" text="SENHA" />
 
     <PasswordField
-            fx:id="txtSenha"
+            fx:id="passwordField"
             promptText="Senha"
             styleClass="input"/>
 </VBox>
@@ -45,6 +45,6 @@
 <Button
         text="Entrar"
         styleClass="botao-login"
-        onAction="#handleClick"/>
+        onAction="#handleLogin"/>
 
 </VBox>
