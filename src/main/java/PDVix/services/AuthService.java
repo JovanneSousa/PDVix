@@ -15,17 +15,15 @@ public class AuthService {
 
     public boolean login(LoginRequestDTO dto){
 
-        String body = "login=" + dto.getLogin() +
-                "&password=" + dto.getPassword() +
-                "&uuid_v4=electron";
+        if(dto == null)
+            throw new IllegalArgumentException("Preencha os dados corretamente!");
 
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("http://localhost/auth"))
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .POST(HttpRequest.BodyPublishers.ofString(body))
-                .build();
+        if(dto.getLogin() == null || dto.getLogin().isBlank())
+            throw new IllegalArgumentException("Campo de usuário inválido");
 
+        if(dto.getPassword() == null || dto.getPassword().isBlank())
+            throw new IllegalArgumentException("Campo de usuário inválido");
 
-        return repository.login(dto, request);
+        return repository.login(dto);
     }
 }

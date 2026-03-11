@@ -1,8 +1,13 @@
 package PDVix.DTOs;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class LoginResponseDTO {
-    private boolean status;
-    private UsuarioDTO data;
+    private String status;
+    private DataDTO data;
     private String message;
 
     @Override
