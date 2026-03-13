@@ -1,9 +1,35 @@
 package PDVix.repositories;
 
 import PDVix.Entities.Config;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import PDVix.utils.HibernateUtil;
+import org.hibernate.Session;
 
-@Repository
-public interface ConfigRepository extends JpaRepository<Config, String> {
+import java.util.Optional;
+
+public class ConfigRepository {
+    public Optional<Config> findById(String chave) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Config config = session.get(Config.class, chave);
+            return Optional.ofNullable(config);
+        }
+    }
+
+    public void save(Config config) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.merge(config);
+            session.getTransaction().commit();
+        }
+    }
+
+    public void delete(String chave) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            Config config = session.get(Config.class, chave);
+            if (config != null) {
+                session.remove(config);
+            }
+            session.getTransaction().commit();
+        }
+    }
 }

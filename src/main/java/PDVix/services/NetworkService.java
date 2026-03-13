@@ -1,12 +1,8 @@
 package PDVix.services;
 
-import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Service;
-
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-@Service
 public class NetworkService {
     public boolean isOnline(String serverUrl) {
         try {

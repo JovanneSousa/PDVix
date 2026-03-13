@@ -1,14 +1,13 @@
 package PDVix;
 
+import PDVix.core.AppContext;
 import PDVix.core.SceneManager;
+import PDVix.utils.HibernateUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 
@@ -16,14 +15,11 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-@SpringBootApplication
 public class App extends Application {
-
-    private static ConfigurableApplicationContext context;
 
     @Override
     public void init() {
-        context = SpringApplication.run(App.class);
+        AppContext.getInstance();
     }
 
     @Override
@@ -32,13 +28,12 @@ public class App extends Application {
                 getClass().getResourceAsStream("/fonts/JetBrainsMono-Bold.ttf"), 14
         );
         SceneManager.setStage(stage);
-        SceneManager.setContext(context);
 
         FXMLLoader loader = new FXMLLoader(
                 getClass().getResource("/views/auth.fxml")
         );
 
-        loader.setControllerFactory(context::getBean);
+        loader.setControllerFactory(AppContext.getInstance()::getController);
 
         Scene scene = new Scene(loader.load());
 
@@ -49,7 +44,7 @@ public class App extends Application {
 
     @Override
     public void stop() {
-        context.close();
+        HibernateUtil.shutdown();
     }
 
     public static void main(String[] args) {

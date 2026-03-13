@@ -5,18 +5,15 @@ import PDVix.DTOs.LoginResponseDTO;
 import PDVix.http.HttpClientProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-@Repository
 @AllArgsConstructor
 public class AuthRepository {
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
 
     private final HttpClient client = HttpClientProvider.getClient();
 

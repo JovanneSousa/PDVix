@@ -7,10 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
-@Controller
 public class LoginController {
     @FXML
     private TextField loginField;
@@ -18,8 +15,11 @@ public class LoginController {
     @FXML
     private PasswordField passwordField;
 
-    @Autowired
-    private  AuthService authService;
+    private final AuthService authService;
+
+    public LoginController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @FXML
     private void handleLogin() {
