@@ -1,8 +1,10 @@
 package PDVix.controllers;
 
 import PDVix.DTOs.LoginRequestDTO;
+import PDVix.core.SceneManager;
 import PDVix.services.AuthService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +23,44 @@ public class LoginController {
 
     @FXML
     private void handleLogin() {
-        LoginRequestDTO dados =
-                new LoginRequestDTO(loginField.getText(), passwordField.getText(), "electron");
 
         try {
+
+            LoginRequestDTO dados =
+                    new LoginRequestDTO(
+                            loginField.getText(),
+                            passwordField.getText(),
+                            "electron"
+                    );
+
             boolean success = authService.login(dados);
-            if(success) {
+
+            if(success){
+
                 System.out.println("Login realizado com sucesso");
-            } else  {
-                System.out.println("Erro ao realizar login");
+
+                SceneManager.switchScene("pdv.fxml");
+
+            } else {
+
+                showError("Usuário ou senha inválidos");
+
             }
+
         } catch (Exception ex) {
-            System.out.println("Erro: " + ex.getMessage());
+
+            showError(ex.getMessage());
+
         }
+    }
+
+    private void showError(String message){
+
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erro");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+
     }
 }

@@ -1,10 +1,9 @@
 package PDVix;
 
+import PDVix.core.SceneManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.springframework.boot.SpringApplication;
@@ -32,8 +31,11 @@ public class App extends Application {
         Font.loadFont(
                 getClass().getResourceAsStream("/fonts/JetBrainsMono-Bold.ttf"), 14
         );
+        SceneManager.setStage(stage);
+        SceneManager.setContext(context);
+
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/views/main.fxml")
+                getClass().getResource("/views/auth.fxml")
         );
 
         loader.setControllerFactory(context::getBean);

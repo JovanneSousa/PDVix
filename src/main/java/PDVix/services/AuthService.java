@@ -2,6 +2,7 @@ package PDVix.services;
 
 import PDVix.DTOs.LoginRequestDTO;
 import PDVix.repositories.AuthRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,9 +10,10 @@ import java.net.URI;
 import java.net.http.HttpRequest;
 
 @Service
+@AllArgsConstructor
 public class AuthService {
     @Autowired
-    private AuthRepository repository;
+    private final AuthRepository repository;
 
     public boolean login(LoginRequestDTO dto){
 

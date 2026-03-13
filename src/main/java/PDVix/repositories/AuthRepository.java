@@ -4,6 +4,7 @@ import PDVix.DTOs.LoginRequestDTO;
 import PDVix.DTOs.LoginResponseDTO;
 import PDVix.http.HttpClientProvider;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +14,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @Repository
+@AllArgsConstructor
 public class AuthRepository {
     private final ObjectMapper mapper = new ObjectMapper();
 
@@ -26,7 +28,7 @@ public class AuthRepository {
                     "&uuid_v4=electron";
 
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("http://localhost:8080/auth"))
+                    .uri(URI.create("http://localhost/auth"))
                     .header("Content-Type", "application/x-www-form-urlencoded")
                     .POST(HttpRequest.BodyPublishers.ofString(body))
                     .build();
@@ -37,7 +39,7 @@ public class AuthRepository {
             LoginResponseDTO resposta = mapper.readValue(response.body(), LoginResponseDTO.class);
             return resposta.getStatus().equals("success");
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Erro: " + e.getMessage());
             return false;
         }
     }
