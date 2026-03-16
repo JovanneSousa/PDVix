@@ -45,7 +45,7 @@ public class AppContext {
         this.authService    = new AuthService(authRepository);
 
         // Controllers
-        this.loginController = new LoginController(authService);
+        this.loginController = new LoginController(authService, networkService);
         this.pdvController   = new PdvController();
     }
 

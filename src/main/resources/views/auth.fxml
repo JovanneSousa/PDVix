@@ -32,10 +32,10 @@
     <PasswordField fx:id="passwordField" promptText="Senha" styleClass="input" />
 </VBox>
     <Button onAction="#handleLogin" styleClass="botao-login" text="Entrar" />
-   <HBox alignment="CENTER">
+   <HBox spacing="2" alignment="CENTER">
       <children>
-         <Circle fill="#1fff20" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
-         <Label text="Conectado ao Servidor" />
+         <Circle fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
+         <Label fx:id="statusLabel" />
       </children>
    </HBox>
 </VBox>

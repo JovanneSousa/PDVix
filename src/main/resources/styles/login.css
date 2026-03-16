@@ -55,3 +55,11 @@
 .input-wrapper PasswordField:focused {
     -fx-border-color: #0D9488;
 }
+
+#circleLoginStatus.online {
+    -fx-fill: #0D9488;
+}
+
+#circleLoginStatus.offline {
+    -fx-fill: red;
+}

@@ -6,7 +6,7 @@ import java.net.URL;
 public class NetworkService {
     public boolean isOnline(String serverUrl) {
         try {
-            URL url = new URL(serverUrl);
+            URL url = new URL(serverUrl + "/login");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
@@ -15,7 +15,7 @@ public class NetworkService {
 
             int code = conn.getResponseCode();
 
-            return code >= 200 && code <= 500;
+            return code == 200;
         } catch (Exception e) {
             return false;
         }
