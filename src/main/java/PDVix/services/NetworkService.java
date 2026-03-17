@@ -1,5 +1,7 @@
 package PDVix.services;
 
+import PDVix.core.AppState;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -21,4 +23,8 @@ public class NetworkService {
         }
     }
 
+    public void checkConnection() {
+        boolean status = isOnline("http://localhost");
+        AppState.setOnline(status);
+    }
 }

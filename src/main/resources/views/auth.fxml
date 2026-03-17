@@ -23,7 +23,7 @@
 </VBox>
 
 <VBox styleClass="input-wrapper">
-    <Label text="LOGIN (cpf)" />
+    <Label text="LOGIN (CPF)" />
     <TextField fx:id="loginField" promptText="Cpf ou Usuário" styleClass="input" />
 </VBox>
 <VBox styleClass="input-wrapper">
@@ -31,10 +31,10 @@
 
     <PasswordField fx:id="passwordField" promptText="Senha" styleClass="input" />
 </VBox>
-    <Button onAction="#handleLogin" styleClass="botao-login" text="Entrar" />
+    <Button defaultButton="true" onAction="#handleLogin" styleClass="botao-login" text="Entrar" />
    <HBox spacing="2" alignment="CENTER">
       <children>
-         <Circle fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
+         <Circle styleClass="offline" fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
          <Label fx:id="statusLabel" />
       </children>
    </HBox>

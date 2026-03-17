@@ -1,11 +1,13 @@
 package PDVix.controllers;
 
 import PDVix.DTOs.LoginRequestDTO;
+import PDVix.core.AppState;
 import PDVix.core.SceneManager;
 import PDVix.services.AuthService;
 import PDVix.services.NetworkService;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -39,27 +41,17 @@ public class LoginController {
 
     @FXML
     public void initialize() {
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.seconds(5), (e) -> updateNetworkStatus())
+        statusLabel.textProperty().bind(
+                Bindings.when(AppState.onlineProperty())
+                        .then("Conectado ao servidor")
+                        .otherwise("Modo offline")
         );
 
-        timeline.setCycleCount(timeline.INDEFINITE);
-        timeline.play();
-
-        updateNetworkStatus();
-    }
-
-    private void updateNetworkStatus() {
-        circleLoginStatus.getStyleClass().removeAll();
-        boolean online = networkService.isOnline("http://localhost:8080");
-
-        if(online) {
-            statusLabel.setText("Online");
-            circleLoginStatus.getStyleClass().add("online");
-        } else {
-            statusLabel.setText("Offline");
-            circleLoginStatus.getStyleClass().add("offline");
-        }
+        AppState.onlineProperty().addListener(
+                (obs, oldVal, newVal) -> {
+                    circleLoginStatus.getStyleClass().removeAll("online", "offline");
+                    circleLoginStatus.getStyleClass().add(newVal ? "online" : "offline");
+        });
     }
 
     @FXML

@@ -1,0 +1,18 @@
+.root {
+    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
+}
+
+.header-pdv label {
+    fx-font-weight: bold;
+}
+
+.client-data {
+}
+
+.online {
+    -fx-fill: #0D9488;
+}
+
+.offline {
+    -fx-fill: red;
+}

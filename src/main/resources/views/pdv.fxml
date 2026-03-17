@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="PDVix.controllers.PdvController"
-            prefHeight="400.0" prefWidth="600.0">
-    <VBox><Label text="Bem vindo ao sistema PDVix"/></VBox>
-
-</AnchorPane>
+<?import javafx.scene.shape.Circle?>
+<VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" spacing="15" styleClass="pdv-container" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
+    <VBox>
+        <HBox styleClass="header-pdv">
+            <ImageView fitHeight="80" fitWidth="196.0">
+                <image>
+                    <Image url="@../img/logo.png" />
+                </image>
+            </ImageView>
+            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="825.0" styleClass="client-data">
+                <Label text="CLIENTE" />
+                <Label prefHeight="17.0" prefWidth="150.0" text="CONSUMIDOR FINAL" />
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="208.0">
+                <Label text="ÚLTIMO ITEM" />
+                <Label text="----" />
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="128.0">
+                <Label prefHeight="26.0" prefWidth="123.0" text="JOVANE" />
+                <HBox spacing="2" alignment="CENTER_LEFT">
+                    <children>
+                        <Circle styleClass="offline" fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Label fx:id="statusLabel" />
+                    </children>
+                </HBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</VBox>

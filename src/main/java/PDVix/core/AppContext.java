@@ -46,7 +46,13 @@ public class AppContext {
 
         // Controllers
         this.loginController = new LoginController(authService, networkService);
-        this.pdvController   = new PdvController();
+        this.pdvController = new PdvController();
+    }
+
+    public Object getController(Class<?> clazz) {
+        if (clazz == LoginController.class) return loginController;
+        if (clazz == PdvController.class)   return pdvController;
+        throw new IllegalArgumentException("Controller não registrado: " + clazz.getName());
     }
 
     public static AppContext getInstance() {
@@ -54,12 +60,6 @@ public class AppContext {
             instance = new AppContext();
         }
         return instance;
-    }
-
-    public Object getController(Class<?> clazz) {
-        if (clazz == LoginController.class) return loginController;
-        if (clazz == PdvController.class)   return pdvController;
-        throw new IllegalArgumentException("Controller não registrado: " + clazz.getName());
     }
 
     public ConfigService getConfigService()   { return configService; }
