@@ -1,16 +1,15 @@
-.root {
-    -fx-font-family: "JetBrains Mono", "Consolas", monospace;
-}
+@import url("main.css");
 
 .login-container {
-    -fx-background-color: #f4f6f9;
+    -fx-background-color: -fx-gray-very-light;
     -fx-padding: 40;
 }
 
 .title-text-login {
-    -fx-font-size: 10px;
-    -fx-fill: #2f2f2f;
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-gray-deep;
 }
+
 
 .title-login {
     -fx-padding: 0 0 16px 0;
@@ -23,7 +22,7 @@
 }
 
 .botao-login {
-    -fx-background-color: #0D9488;
+    -fx-background-color: -fx-primary-green;
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-pref-width: 250px;
@@ -32,7 +31,7 @@
 }
 
 .botao-login:hover {
-    -fx-background-color: #0F766E;
+    -fx-background-color: -fx-primary-green-dark;
     -fx-cursor: hand;
 }
 
@@ -53,13 +52,5 @@
 
 .input-wrapper TextField:focused,
 .input-wrapper PasswordField:focused {
-    -fx-border-color: #0D9488;
-}
-
-#circleLoginStatus.online {
-    -fx-fill: #0D9488;
-}
-
-#circleLoginStatus.offline {
-    -fx-fill: red;
+    -fx-border-color: -fx-primary-green;
 }

@@ -19,7 +19,7 @@
             <Image url="@../img/logo.png" />
         </image>
     </ImageView>
-    <Text fill="#aeaeae" styleClass="title-text-login" text="Ponto de Venda Enterprise" />
+    <Label styleClass="title-text-login" text="Ponto de Venda Enterprise" />
 </VBox>
 
 <VBox styleClass="input-wrapper">
@@ -35,7 +35,7 @@
    <HBox spacing="2" alignment="CENTER">
       <children>
          <Circle styleClass="offline" fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
-         <Label fx:id="statusLabel" />
+         <Label styleClass="title-text-login" fx:id="statusLabel" />
       </children>
    </HBox>
 </VBox>

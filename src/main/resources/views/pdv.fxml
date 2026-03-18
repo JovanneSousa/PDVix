@@ -3,33 +3,45 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<?import javafx.scene.shape.Circle?>
-<VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" spacing="15" styleClass="pdv-container" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
-    <VBox>
-        <HBox styleClass="header-pdv">
-            <ImageView fitHeight="80" fitWidth="196.0">
+<VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" spacing="15" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
+
+    <VBox styleClass="headerPdv">
+        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="1366.0" styleClass="pdvContainer">
+            <ImageView fitHeight="67.0" fitWidth="128.0">
                 <image>
                     <Image url="@../img/logo.png" />
                 </image>
             </ImageView>
-            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="825.0" styleClass="client-data">
+            <VBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="825.0" styleClass="client-data">
                 <Label text="CLIENTE" />
                 <Label prefHeight="17.0" prefWidth="150.0" text="CONSUMIDOR FINAL" />
             </VBox>
-            <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="208.0">
+            <VBox alignment="CENTER_LEFT" prefWidth="208.0">
                 <Label text="ÚLTIMO ITEM" />
                 <Label text="----" />
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="128.0">
                 <Label prefHeight="26.0" prefWidth="123.0" text="JOVANE" />
-                <HBox spacing="2" alignment="CENTER_LEFT">
+                <HBox alignment="CENTER_LEFT" spacing="2">
                     <children>
-                        <Circle styleClass="offline" fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
+                        <Circle fx:id="circleLoginStatus" radius="4.0" stroke="WHITE" strokeType="INSIDE" />
                         <Label fx:id="statusLabel" />
                     </children>
                 </HBox>
             </VBox>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="66.0" prefWidth="1366.0" spacing="15" styleClass="menuTopo">
+            <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="130.0">
+                <Label text="QTD" />
+                <TextField styleClass="radius" alignment="CENTER" fx:id="qtdInput" text="1" />
+            </VBox>
+            <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="1085.0">
+                <Label text="CÓDIGO DE BARRAS / CÓDIGO ALTERNATIVO" />
+                <TextField disable="true" styleClass="radius" fx:id="descInput" prefHeight="25.0" prefWidth="867.0" text="Aguardando... (F3 para abrir venda)" />
+            </VBox>
+            <Button styleClass="search" fx:id="search" text=""/>
         </HBox>
     </VBox>
 </VBox>

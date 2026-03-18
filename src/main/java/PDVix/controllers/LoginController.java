@@ -82,7 +82,7 @@ public class LoginController {
 
         } catch (Exception ex) {
 
-            showError(ex.getMessage());
+            showError(ex.getMessage() + ex.getLocalizedMessage() + ex.getCause());
 
         }
     }
