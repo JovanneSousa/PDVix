@@ -64,3 +64,19 @@ TextField {
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
 }
+
+.mainContainer {
+
+}
+
+.mainContainer .title {
+    -fx-background-color: -fx-gray-light;
+    -fx-pref-height: 40;
+    -fx-border-color: transparent transparent -fx-gray-base transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+.title Label {
+    -fx-text-fill: -fx-gray-deep;
+    -fx-font-width: bold;
+}

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" spacing="15" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
+<VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
 
     <VBox styleClass="headerPdv">
         <HBox alignment="CENTER" prefHeight="32.0" prefWidth="1366.0" styleClass="pdvContainer">
@@ -43,5 +43,23 @@
             </VBox>
             <Button styleClass="search" fx:id="search" text=""/>
         </HBox>
+    </VBox>
+    <VBox >
+        <VBox styleClass="mainContainer">
+            <HBox alignment="CENTER" spacing="10" styleClass="title">
+                <Label text="#"/>
+                <Label text="PRODUTO"/>
+                <Label text="QTD"/>
+                <Label text="UNIT."/>
+                <Label text="DESC."/>
+                <Label text="SUBTOTAL" />
+            </HBox>
+            <HBox>
+                <Label styleClass="descVenda" text="SUBTOTAL R$ 0,00" />
+                <Label styleClass="descVenda" text="DESCONTO - R$ 0,00" />
+                <Label styleClass="descVenda" text="TOTAL R$ 0,00" />
+
+            </HBox>
+        </VBox>
     </VBox>
 </VBox>
