@@ -42,7 +42,7 @@ public class App extends Application {
         SceneManager.setStage(stage);
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/views/auth.fxml")
+                getClass().getResource("/views/pdv.fxml")
         );
 
         loader.setControllerFactory(AppContext.getInstance()::getController);

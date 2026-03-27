@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
+<?import java.lang.String?>
 <VBox alignment="TOP_CENTER" prefHeight="768" prefWidth="1366" stylesheets="@../styles/pdv.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="PDVix.controllers.PdvController">
 
     <VBox styleClass="headerPdv">
@@ -35,31 +36,52 @@
         <HBox alignment="CENTER" prefHeight="66.0" prefWidth="1366.0" spacing="15" styleClass="menuTopo">
             <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="130.0">
                 <Label text="QTD" />
-                <TextField styleClass="radius" alignment="CENTER" fx:id="qtdInput" text="1" />
+                <TextField fx:id="qtdInput" alignment="CENTER" styleClass="radius" text="1" />
             </VBox>
             <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="1085.0">
                 <Label text="CÓDIGO DE BARRAS / CÓDIGO ALTERNATIVO" />
-                <TextField disable="true" styleClass="radius" fx:id="descInput" prefHeight="25.0" prefWidth="867.0" text="Aguardando... (F3 para abrir venda)" />
+                <TextField fx:id="descInput" disable="true" prefHeight="25.0" prefWidth="867.0" styleClass="radius" text="Aguardando... (F3 para abrir venda)" />
             </VBox>
-            <Button styleClass="search" fx:id="search" text=""/>
+            <Button fx:id="search" styleClass="search" text="" />
         </HBox>
     </VBox>
-    <VBox >
-        <VBox styleClass="mainContainer">
-            <HBox alignment="CENTER" spacing="10" styleClass="title">
-                <Label text="#"/>
-                <Label text="PRODUTO"/>
-                <Label text="QTD"/>
-                <Label text="UNIT."/>
-                <Label text="DESC."/>
-                <Label text="SUBTOTAL" />
-            </HBox>
-            <HBox>
-                <Label styleClass="descVenda" text="SUBTOTAL R$ 0,00" />
-                <Label styleClass="descVenda" text="DESCONTO - R$ 0,00" />
-                <Label styleClass="descVenda" text="TOTAL R$ 0,00" />
+    <BorderPane prefHeight="600" prefWidth="1000">
 
-            </HBox>
-        </VBox>
-    </VBox>
+        <!-- LADO DIREITO (fixo do topo até embaixo) -->
+        <right>
+            <VBox spacing="8" alignment="TOP_CENTER" prefWidth="250" styleClass="dadosVenda">
+                <Label  styleClass="descVenda" text="SUBTOTAL R$ 0,00" />
+                <Label  styleClass="descVenda" text="DESCONTO - R$ 0,00" />
+                <Label  text="TOTAL R$ 0,00">
+                    <styleClass>
+                        <String fx:value="descVenda"/>
+                        <String fx:value="total"/>
+                    </styleClass>
+                </Label>
+            </VBox>
+        </right>
+
+        <!-- ÁREA ESQUERDA (títulos + itens) -->
+        <center>
+            <VBox>
+
+                <!-- TÍTULOS (somente na esquerda) -->
+                <HBox alignment="CENTER" spacing="10" styleClass="title">
+                    <Label text="#" />
+                    <Label prefHeight="17.0" prefWidth="397.0" text="PRODUTO" />
+                    <Label prefHeight="17.0" prefWidth="106.0" text="QTD" />
+                    <Label prefWidth="100" text="UNIT." />
+                    <Label prefHeight="17.0" prefWidth="208.0" text="DESC." />
+                    <Label prefWidth="120" text="SUBTOTAL" />
+                </HBox>
+
+                <!-- REGISTRO DE ITENS -->
+                <VBox fx:id="itensContainer" spacing="5" style="-fx-padding: 10;">
+                    <!-- itens dinâmicos aqui -->
+                </VBox>
+
+            </VBox>
+        </center>
+
+    </BorderPane>
 </VBox>

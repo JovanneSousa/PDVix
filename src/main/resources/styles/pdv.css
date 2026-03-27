@@ -65,18 +65,33 @@ TextField {
     -fx-background-radius: 10px;
 }
 
-.mainContainer {
-
-}
-
-.mainContainer .title {
+.title {
     -fx-background-color: -fx-gray-light;
-    -fx-pref-height: 40;
     -fx-border-color: transparent transparent -fx-gray-base transparent;
     -fx-border-width: 0 0 2 0;
+    -fx-padding: 10;
 }
 
-.title Label {
-    -fx-text-fill: -fx-gray-deep;
-    -fx-font-width: bold;
+.dadosVenda {
+    -fx-background-color: -fx-gray-light;
+    -fx-padding: 10;
+    -fx-border-color: transparent transparent -fx-gray-base -fx-gray-base;
+    -fx-border-width: 0 0 2 2;
+}
+
+.descVenda {
+    -fx-background-color: white;
+    -fx-padding: 12px;
+    -fx-border-color:  -fx-gray-base;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 40;
+    -fx-pref-width: 228;
+}
+
+.total {
+    -fx-background-color: -fx-primary-green;
+    -fx-text-fill: white;
+    -fx-border-color:  transparent;
 }
